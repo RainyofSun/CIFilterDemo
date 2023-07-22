@@ -1,0 +1,16 @@
+PODS:
+  - Vivid (0.9)
+
+DEPENDENCIES:
+  - Vivid (= 0.9)
+
+SPEC REPOS:
+  trunk:
+    - Vivid
+
+SPEC CHECKSUMS:
+  Vivid: 0fde7409beac71224deb151dd78f98a5bb860497
+
+PODFILE CHECKSUM: 309d6a1bf19eaad87ecbf4984429ea533b561bbc
+
+COCOAPODS: 1.11.3

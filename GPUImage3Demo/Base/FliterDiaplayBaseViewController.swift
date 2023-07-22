@@ -38,4 +38,8 @@ class FliterDiaplayBaseViewController: UIViewController {
         self.view.addSubview(slider)
         return slider
     }
+    
+    deinit {
+        print("DEALLOC -------------\(NSStringFromClass(type(of: self)))")
+    }
 }

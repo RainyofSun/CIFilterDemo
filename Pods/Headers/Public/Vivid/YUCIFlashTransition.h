@@ -1,0 +1,1 @@
+../../../Vivid/Sources/YUCIFlashTransition.h

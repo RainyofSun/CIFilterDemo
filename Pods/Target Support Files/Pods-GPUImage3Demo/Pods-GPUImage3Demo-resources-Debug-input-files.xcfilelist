@@ -1,0 +1,18 @@
+${PODS_ROOT}/Target Support Files/Pods-GPUImage3Demo/Pods-GPUImage3Demo-resources.sh
+${PODS_ROOT}/Vivid/Sources/YUCIBilateralFilter.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCIBlobsGenerator.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCICLAHE.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCIColorLookup.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCIColorLookupTableDefault.png
+${PODS_ROOT}/Vivid/Sources/YUCICrossZoomTransition.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCIFilmBurnTransition.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCIFlashTransition.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCIFXAA.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCIHSLToRGB.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCIReflectedTile.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCIRGBToHSL.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCIRGBToneCurve.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCISkyGenerator.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCIStarfieldGenerator.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCISurfaceBlur.cikernel
+${PODS_ROOT}/Vivid/Sources/YUCITriangularPixellate.cikernel
