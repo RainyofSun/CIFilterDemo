@@ -23,6 +23,8 @@ class CIFilterCustomFilterViewController: FliterDiaplayBaseViewController {
         case Apply1977Filter = "apply1977Filter"
         case ToasterFilter = "toasterFilter"
         case HazeRemoveFilter = "HazeRemoveFilter"
+        case MaskedVariableCircularBokeh = "MaskedVariableCircularBokeh"
+        case CarnivalMirror = "CarnivalMirror"
     }
     
     private(set) lazy var beforImgView: UIImageView = {
@@ -52,12 +54,15 @@ class CIFilterCustomFilterViewController: FliterDiaplayBaseViewController {
                                   CustomFilterType.ReplaceBackground.rawValue,CustomFilterType.BlackAndWhiteFilter.rawValue, CustomFilterType.AirFilter.rawValue,
                                   CustomFilterType.CrystalFilter.rawValue,CustomFilterType.VividFilter.rawValue, CustomFilterType.ClarendonFilter.rawValue,
                                   CustomFilterType.NashvilleFilter.rawValue, CustomFilterType.Apply1977Filter.rawValue, CustomFilterType.ToasterFilter.rawValue,
-                                  CustomFilterType.HazeRemoveFilter.rawValue]
+                                  CustomFilterType.HazeRemoveFilter.rawValue, CustomFilterType.MaskedVariableCircularBokeh.rawValue,
+                                  CustomFilterType.CarnivalMirror.rawValue,]
     
     private lazy var _ci_context: CIContext = CIContext(options: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 注册所有的自定义滤镜
+        CustomFiltersVendor.registerFilters()
         setupUI()
     }
     
@@ -78,18 +83,14 @@ class CIFilterCustomFilterViewController: FliterDiaplayBaseViewController {
         
         if _filterType == .RedEyeCorrection || _filterType == .ColorInvert {
             self.applyFilter(originalImg: UIImage(named: "redEye")!, filterType: _filterType)
-        }
-        
-        if _filterType == .OldFilmEffect {
+        } else if _filterType == .OldFilmEffect {
             self.applyFilter(originalImg: UIImage(named: "Image")!, filterType: _filterType)
-        }
-        
-        if _filterType == .ReplaceBackground || _filterType == .BlackAndWhiteFilter {
+        } else if _filterType == .ReplaceBackground || _filterType == .BlackAndWhiteFilter {
             self.applyFilter(originalImg: UIImage(named: "Image2")!, filterType: _filterType)
+        } else if _filterType == .MaskedVariableCircularBokeh || _filterType == .BlackAndWhiteFilter {
+            self.applyFilter(originalImg: UIImage(named: "MaYu.jpg")!, filterType: _filterType)
         }
-        
-        if _filterType == .AirFilter || _filterType == .CrystalFilter || _filterType == .VividFilter || _filterType == .ClarendonFilter
-            || _filterType == .NashvilleFilter || _filterType == .Apply1977Filter || _filterType == .ToasterFilter || _filterType == .HazeRemoveFilter {
+        else {
             self.applyFilter(originalImg: UIImage(named: "sample2.jpg")!, filterType: _filterType)
         }
     }
@@ -150,6 +151,10 @@ private extension CIFilterCustomFilterViewController {
             _ouputImg = self.toasterFilter(inputImage: inputImage)
         case .HazeRemoveFilter:
             _ouputImg = self.hazeRemoveFilter(inputImage: inputImage)
+        case .MaskedVariableCircularBokeh:
+            _ouputImg = self.maskedVariableCircularBokeh(inputImage: inputImage)
+        case .CarnivalMirror:
+            _ouputImg = self.carnivalMirror(inputImage: inputImage)
         }
         
         if let _o_i = _ouputImg, let _cgImg = _ci_context.createCGImage(_o_i, from: _o_i.extent) {
@@ -308,11 +313,34 @@ private extension CIFilterCustomFilterViewController {
         let _screenBlendModeFilter = CIFF.ScreenBlendMode(inputImage: _colorControlsFilter?.outputImage, backgroundImage: _radisalGradientFilter?.outputImage?.cropped(to: inputImage.extent))
         return _screenBlendModeFilter?.outputImage
     }
+    
     /// 去雾滤镜
     func hazeRemoveFilter(inputImage: CIImage) -> CIImage? {
         let filter = HazeRemovalFilter()
         filter.inputImage = inputImage
         return filter.outputImage
+    }
+    
+    /// maskedVariableCircularBokeh
+    func maskedVariableCircularBokeh(inputImage: CIImage) -> CIImage? {
+        let _maskImg = UIColor.getColorImage(red: 243, green: 106, blue: 188, alpha: Int(255 * 0.1), rect: inputImage.extent)
+        let _filter = MaskedVariableCircularBokeh()
+        _filter.inputImage = inputImage
+        _filter.inputBokehMask = _maskImg
+        _filter.inputBlurRadius = 5
+        _filter.inputMaxBokehRadius = 50
+        return _filter.outputImage
+    }
+    
+    /// carnivalMirror
+    func carnivalMirror(inputImage: CIImage) -> CIImage? {
+        let _carnivalfilter = CarnivalMirror()
+        _carnivalfilter.inputImage = inputImage
+        _carnivalfilter.inputHorizontalAmount = 8
+        _carnivalfilter.inputHorizontalWavelength = 13
+        _carnivalfilter.inputVerticalAmount = 10
+        _carnivalfilter.inputVerticalWavelength = 15
+        return _carnivalfilter.outputImage
     }
 }
 

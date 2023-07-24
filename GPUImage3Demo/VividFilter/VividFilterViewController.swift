@@ -28,13 +28,15 @@ class VividFilterViewController: CIFilterCustomFilterViewController {
         case YUCIStarfieldGenerator = "YUCIStarfieldGenerator"
         case YUCISurfaceBlur = "YUCISurfaceBlur"
         case YUCITriangularPixellate = "YUCITriangularPixellate"
+        case CausticNoise = "Caustic Noise"
+        case CausticRefraction = "Caustic Refraction"
         
         static func allVividFilters() -> [String] {
             return [self.YUCIBilateralFilter.rawValue, self.YUCIBlobsGenerator.rawValue, self.YUCICLAHE.rawValue, self.YUCIColorLookup.rawValue,
                     self.YUCICrossZoomTransition.rawValue, self.YUCIFilmBurnTransition.rawValue, self.YUCIFlashTransition.rawValue,
                     self.YUCIFXAA.rawValue, self.YUCIHistogramEqualization.rawValue,self.YUCIReflectedTile.rawValue,
                     self.YUCIRGBToneCurve.rawValue,self.YUCISkyGenerator.rawValue, self.YUCIStarfieldGenerator.rawValue, self.YUCISurfaceBlur.rawValue,
-                    self.YUCITriangularPixellate.rawValue]
+                    self.YUCITriangularPixellate.rawValue, self.CausticNoise.rawValue, self.CausticRefraction.rawValue]
         }
     }
     
@@ -48,6 +50,8 @@ class VividFilterViewController: CIFilterCustomFilterViewController {
     
     override func viewDidLoad() {
         _data_source = VividFilterType.allVividFilters()
+        // 注册所有的自定义滤镜
+        CustomFiltersVendor.registerFilters()
         super.viewDidLoad()
         self.beforImgView.image = UIImage(named: "sample.jpg")
     }
@@ -145,6 +149,24 @@ class VividFilterViewController: CIFilterCustomFilterViewController {
             if let _filter: CIFilter = CIFilter(name: _filter_name, parameters: ["inputScale": 15, "inputVertexAngle": Double.pi * 0.7, "inputCenter": CIVector(x: 200, y: 200)]) {
                 _vivid_filter = _filter
             }
+        case .CausticNoise:
+            let _filter = CausticNoise()
+            _filter.inputTileSize = 50
+            _filter.inputWidth = 200
+            _filter.inputHeight = 200
+            self._vivid_filter = _filter
+            linkTimer = CADisplayLink(target: self, selector: #selector(stepTime))
+            linkTimer?.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
+        case .CausticRefraction:
+            let _filter = CausticRefraction()
+            _filter.inputRefractiveIndex = 10.0
+            _filter.inputLensScale = 20
+            _filter.inputLightingAmount = 2.5
+            _filter.inputTileSize = 500
+            _filter.inputSoftening = 5
+            self._vivid_filter = _filter
+            linkTimer = CADisplayLink(target: self, selector: #selector(stepTime))
+            linkTimer?.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
         default:
             break
         }

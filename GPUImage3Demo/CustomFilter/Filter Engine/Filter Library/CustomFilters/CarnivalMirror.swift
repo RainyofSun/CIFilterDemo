@@ -47,7 +47,7 @@ class CarnivalMirror: CIFilter
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
-                kCIAttributeType: kCIAttributeTypeImage],
+                               kCIAttributeType: kCIAttributeTypeImage] as [String : Any],
             
             "inputHorizontalWavelength": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -56,7 +56,7 @@ class CarnivalMirror: CIFilter
                 kCIAttributeMin: 0,
                 kCIAttributeSliderMin: 0,
                 kCIAttributeSliderMax: 100,
-                kCIAttributeType: kCIAttributeTypeScalar],
+                kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
             
             "inputHorizontalAmount": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -65,7 +65,7 @@ class CarnivalMirror: CIFilter
                 kCIAttributeMin: 0,
                 kCIAttributeSliderMin: 0,
                 kCIAttributeSliderMax: 100,
-                kCIAttributeType: kCIAttributeTypeScalar],
+                kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
             
             "inputVerticalWavelength": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -74,7 +74,7 @@ class CarnivalMirror: CIFilter
                 kCIAttributeMin: 0,
                 kCIAttributeSliderMin: 0,
                 kCIAttributeSliderMax: 100,
-                kCIAttributeType: kCIAttributeTypeScalar],
+                kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
             
             "inputVerticalAmount": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -83,7 +83,7 @@ class CarnivalMirror: CIFilter
                 kCIAttributeMin: 0,
                 kCIAttributeSliderMin: 0,
                 kCIAttributeSliderMax: 100,
-                kCIAttributeType: kCIAttributeTypeScalar]
+                kCIAttributeType: kCIAttributeTypeScalar] as [String : Any]
         ]
         
         

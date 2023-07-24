@@ -53,12 +53,12 @@ class MaskedVariableCircularBokeh: CIFilter
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
-                kCIAttributeType: kCIAttributeTypeImage],
+                               kCIAttributeType: kCIAttributeTypeImage] as [String : Any],
             
             "inputBokehMask": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
-                kCIAttributeType: kCIAttributeTypeImage],
+                                   kCIAttributeType: kCIAttributeTypeImage] as [String : Any],
             
             "inputMaxBokehRadius": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -67,7 +67,7 @@ class MaskedVariableCircularBokeh: CIFilter
                 kCIAttributeMin: 1,
                 kCIAttributeSliderMin: 1,
                 kCIAttributeSliderMax: 50,
-                kCIAttributeType: kCIAttributeTypeScalar],
+                                        kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
             
             "inputBlurRadius": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -76,7 +76,7 @@ class MaskedVariableCircularBokeh: CIFilter
                 kCIAttributeMin: 1,
                 kCIAttributeSliderMin: 1,
                 kCIAttributeSliderMax: 5,
-                kCIAttributeType: kCIAttributeTypeScalar]
+                                    kCIAttributeType: kCIAttributeTypeScalar] as [String : Any]
         ]
     }
     
@@ -167,7 +167,7 @@ class MaskedVariableCircularBokeh: CIFilter
                 "inputImage": [kCIAttributeIdentity: 0,
                     kCIAttributeClass: "CIImage",
                     kCIAttributeDisplayName: "Image",
-                    kCIAttributeType: kCIAttributeTypeImage],
+                                   kCIAttributeType: kCIAttributeTypeImage] as [String : Any],
                 
                 "inputBokehRadius": [kCIAttributeIdentity: 0,
                     kCIAttributeClass: "NSNumber",
@@ -176,7 +176,7 @@ class MaskedVariableCircularBokeh: CIFilter
                     kCIAttributeMin: 1,
                     kCIAttributeSliderMin: 1,
                     kCIAttributeSliderMax: 50,
-                    kCIAttributeType: kCIAttributeTypeScalar],
+                                         kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
             
                 "inputBlurSigma": [kCIAttributeIdentity: 0,
                     kCIAttributeClass: "NSNumber",
@@ -185,7 +185,7 @@ class MaskedVariableCircularBokeh: CIFilter
                     kCIAttributeMin: 1,
                     kCIAttributeSliderMin: 1,
                     kCIAttributeSliderMax: 5,
-                    kCIAttributeType: kCIAttributeTypeScalar]
+                                       kCIAttributeType: kCIAttributeTypeScalar] as [String : Any]
             ]
         }
             

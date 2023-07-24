@@ -13,8 +13,8 @@ import CoreImage
 
 class CausticNoise: CIFilter
 {
-  var inputTime: CGFloat = 1
-  var inputTileSize: CGFloat = 640
+  @objc var inputTime: CGFloat = 1
+  @objc var inputTileSize: CGFloat = 640
   var inputWidth: CGFloat = 640
   var inputHeight: CGFloat = 640
   
@@ -30,7 +30,7 @@ class CausticNoise: CIFilter
         kCIAttributeMin: 0,
         kCIAttributeSliderMin: 0,
         kCIAttributeSliderMax: 1000,
-        kCIAttributeType: kCIAttributeTypeScalar],
+                        kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
       "inputTileSize": [kCIAttributeIdentity: 0,
         kCIAttributeClass: "NSNumber",
         kCIAttributeDefault: 640,
@@ -38,7 +38,7 @@ class CausticNoise: CIFilter
         kCIAttributeMin: 10,
         kCIAttributeSliderMin: 10,
         kCIAttributeSliderMax: 2048,
-        kCIAttributeType: kCIAttributeTypeScalar],
+                            kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
       "inputWidth": [kCIAttributeIdentity: 0,
         kCIAttributeClass: "NSNumber",
         kCIAttributeDefault: 640,
@@ -46,7 +46,7 @@ class CausticNoise: CIFilter
         kCIAttributeMin: 0,
         kCIAttributeSliderMin: 0,
         kCIAttributeSliderMax: 1280,
-        kCIAttributeType: kCIAttributeTypeScalar],
+                         kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
       "inputHeight": [kCIAttributeIdentity: 0,
         kCIAttributeClass: "NSNumber",
         kCIAttributeDefault: 640,
@@ -54,7 +54,7 @@ class CausticNoise: CIFilter
         kCIAttributeMin: 0,
         kCIAttributeSliderMin: 0,
         kCIAttributeSliderMax: 1280,
-        kCIAttributeType: kCIAttributeTypeScalar]
+                          kCIAttributeType: kCIAttributeTypeScalar] as [String : Any]
     ]
   }
   
@@ -101,11 +101,11 @@ class CausticNoise: CIFilter
 
 class CausticRefraction: CIFilter
 {
-    var inputImage: CIImage?
+    @objc var inputImage: CIImage?
     var inputRefractiveIndex: CGFloat = 4.0
     var inputLensScale: CGFloat = 50
     var inputLightingAmount: CGFloat = 1.5
-    var inputTime: CGFloat = 1
+    @objc var inputTime: CGFloat = 1
     var inputTileSize: CGFloat = 640
     var inputSoftening: CGFloat = 3
     
@@ -117,13 +117,13 @@ class CausticRefraction: CIFilter
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
-                kCIAttributeType: kCIAttributeTypeImage],
+                               kCIAttributeType: kCIAttributeTypeImage] as [String : Any],
             
             "inputText": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSString",
                 kCIAttributeDisplayName: "Text",
                 kCIAttributeDefault: "Filterpedia",
-                kCIAttributeType: kCIAttributeTypeScalar],
+                              kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
             
             "inputRefractiveIndex": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -132,7 +132,7 @@ class CausticRefraction: CIFilter
                 kCIAttributeMin: -4.0,
                 kCIAttributeSliderMin: -10.0,
                 kCIAttributeSliderMax: 10,
-                kCIAttributeType: kCIAttributeTypeScalar],
+                                         kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
             
             "inputLensScale": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -141,7 +141,7 @@ class CausticRefraction: CIFilter
                 kCIAttributeMin: 1,
                 kCIAttributeSliderMin: 1,
                 kCIAttributeSliderMax: 100,
-                kCIAttributeType: kCIAttributeTypeScalar],
+                                   kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
             
             "inputLightingAmount": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -150,7 +150,7 @@ class CausticRefraction: CIFilter
                 kCIAttributeMin: 0,
                 kCIAttributeSliderMin: 0,
                 kCIAttributeSliderMax: 5,
-                kCIAttributeType: kCIAttributeTypeScalar],
+                                        kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
             
             "inputTime": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -159,7 +159,7 @@ class CausticRefraction: CIFilter
                 kCIAttributeMin: 0,
                 kCIAttributeSliderMin: 0,
                 kCIAttributeSliderMax: 1000,
-                kCIAttributeType: kCIAttributeTypeScalar],
+                              kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
             
             "inputTileSize": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -168,7 +168,7 @@ class CausticRefraction: CIFilter
                 kCIAttributeMin: 10,
                 kCIAttributeSliderMin: 10,
                 kCIAttributeSliderMax: 2048,
-                kCIAttributeType: kCIAttributeTypeScalar],
+                                  kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
             
             "inputSoftening": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -177,7 +177,7 @@ class CausticRefraction: CIFilter
                 kCIAttributeMin: 0,
                 kCIAttributeSliderMin: 0,
                 kCIAttributeSliderMax: 20,
-                kCIAttributeType: kCIAttributeTypeScalar],
+                                   kCIAttributeType: kCIAttributeTypeScalar] as [String : Any],
         ]
     }
     
